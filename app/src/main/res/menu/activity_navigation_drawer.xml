@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/ic_home_deep_purple_900_24dp"
+            android:title="Home" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_assingment"
+            android:icon="@drawable/ic_assignment_purple_800_24dp"
+            android:title="Assingment" />
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_people_purple_800_24dp"
+            android:title="Attendance" />
+        <item
+            android:id="@+id/nav_calender"
+            android:icon="@drawable/ic_perm_contact_calendar_deep_purple_500_24dp"
+            android:title="Calender" />
+    </group>
+
+
+</menu>
