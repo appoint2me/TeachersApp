@@ -75,6 +75,16 @@ public class AdapterRecyclerViewStudentData extends RecyclerView.Adapter<Adapter
     }
 
     @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
     public int getItemCount() {
         return mListStudentData.size();
     }

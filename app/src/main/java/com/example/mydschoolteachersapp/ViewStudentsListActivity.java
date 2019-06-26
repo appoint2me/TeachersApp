@@ -296,6 +296,7 @@ public class ViewStudentsListActivity extends AppCompatActivity {
     }
     public void getClassStudentsList()
     {
+
         final ProgressDialog progressDialog=new ProgressDialog(ViewStudentsListActivity.this);
         progressDialog.setTitle("Students Details");
         progressDialog.setMessage("Please Wait...");
@@ -306,6 +307,7 @@ public class ViewStudentsListActivity extends AppCompatActivity {
         @Override
         public void onResponse(String response) {
             progressDialog.dismiss();
+            mListStudentData.clear();
             try{
                 System.out.println("View Class List Response:"+response);
                 JSONObject jsonObject=new JSONObject(response);
@@ -372,10 +374,15 @@ public class ViewStudentsListActivity extends AppCompatActivity {
             return params;
         }
     };
-        stringRequestGetClassList.setRetryPolicy(new DefaultRetryPolicy(50000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                                                                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        Singelton.getInstance(getApplicationContext()).addToRequestQue(stringRequestGetClassList);
-}
+        stringRequestGetClassList
+                .setRetryPolicy(new DefaultRetryPolicy(50000
+                        ,DefaultRetryPolicy
+                        .DEFAULT_MAX_RETRIES
+                        ,DefaultRetryPolicy
+                        .DEFAULT_BACKOFF_MULT));
+        Singelton.getInstance(getApplicationContext())
+                .addToRequestQue(stringRequestGetClassList);
+    }
     public void changeAttendanceStatus() {
         //Toast.makeText(ViewStudentsListActivity.this, "STUDENT ID: "+application_id+"STATUS:  "+Status, Toast.LENGTH_SHORT).show();
         final ProgressDialog progressDialog1=new ProgressDialog(ViewStudentsListActivity.this);
@@ -410,10 +417,8 @@ public class ViewStudentsListActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 //send data to server and get respons from its in respons
 
-
                 params.put("student_id", application_id);
                 params.put("status", Status);
-
                 return params;
             }
         };
@@ -437,7 +442,6 @@ public class ViewStudentsListActivity extends AppCompatActivity {
                 final AlertDialog.Builder alertBuilder=new AlertDialog.Builder(this);
                 alertBuilder.setTitle("Logout");
                 alertBuilder.setMessage("Do you Really Want to Exit");
-
                 alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -455,7 +459,6 @@ public class ViewStudentsListActivity extends AppCompatActivity {
                 });
                 alertBuilder.create();
                 alertBuilder.show();
-
 
             default:
                 return super.onOptionsItemSelected(item);
